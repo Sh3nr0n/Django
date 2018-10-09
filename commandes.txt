@@ -1,0 +1,42 @@
+# Créer un environnement virtuel pour le projet
+virtualenv masterclass_django
+
+# Activer cet environnement de travail
+source masterclass_django/bin/activate
+
+# Installer django
+pip install django
+
+# Créer un projet django
+django-admin startproject masterclass_app
+
+# Se placer dans le projet
+cd masterclass_app/
+
+# Créer une application ou API
+./manage.py startapp masterclass_api
+
+# Installer une extension pour utiliser postgre
+pip install django psycopg2-binary
+
+# Créer un super utilisateur pour se connecter à l'interface admin
+./manage.py createsuperuser
+
+# Modifier les paramètres de la base de données dans le fichier settings puis migrer les fichiers
+./manage.py makemigrations
+./manage.py migrate
+
+
+# Lancer le serveur
+./manage.py runserver
+
+# RQ : pour redemarrer lenvironnenemnt de dev depuis un projet django deja en place
+source masterclass_django/bin/activate
+cd masterclass_app/
+./manage.py runserver
+
+# Dans le navigateur entrer l'URL suivante:
+http://localhost:8000/
+
+# interface admin :
+http://localhost:8000/admin/
